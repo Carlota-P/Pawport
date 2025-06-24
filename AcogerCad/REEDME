@@ -1,0 +1,20 @@
+# AcogerCad
+
+Clase principal de acceso a datos para el sistema de gestión de animales y protectoras. Incluye la lógica de conexión con la base de datos Oracle y los métodos CRUD para las entidades principales:
+- Usuarios
+- Protectora
+- Animales
+- Favoritos
+- Imágenes (rutas)
+
+## Funcionalidades principales
+- Login de usuarios y protectoras
+- Inserción, actualización y borrado de animales
+- Gestión de favoritos por parte de los usuarios
+- Carga y obtención de fotos asociadas
+- Lectura y escritura con la base de datos Oracle
+
+## Requisitos
+- Java 8+
+- Base de datos Oracle
+- JDBC Driver (`ojdbc6.jar`)
