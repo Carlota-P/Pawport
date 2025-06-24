@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_edit_profile"
+        android:title="Editar perfil"/>
+    <item
+        android:id="@+id/exit_account"
+        android:title="Salir de la cuenta" />
+    <item
+        android:id="@+id/exit_app"
+        android:title="Salir de la aplicación"/>
+</menu>

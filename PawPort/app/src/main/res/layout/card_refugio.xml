@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="20dp"
+    android:background="@drawable/background_refugio_card"
+    android:orientation="vertical"
+    android:padding="12dp">
+
+    <!-- Título -->
+    <TextView
+        android:id="@+id/tvNombreProtectora"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nombre Refugio"
+        android:textAlignment="center"
+        android:fontFamily="@font/poppins_regular"
+        android:textColor="#2C365A"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- Imagen + descripción -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/logoProtectora"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/default_refugio"
+            android:layout_marginEnd="12dp" />
+
+        <TextView
+            android:id="@+id/tvDescripcion"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/poppins_regular"
+            android:maxLines="3"
+            android:ellipsize="end"
+            android:textAlignment="center"
+            android:text="Descripción del refugio con detalles de su misión, visión y valores. Esta es una vista de ejemplo."
+            android:textColor="#2C365A"
+            android:textSize="14sp"
+            android:lineSpacingExtra="0dp"/>
+    </LinearLayout>
+
+    <!-- Botón de más info -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="end|center_vertical"
+        android:layout_marginTop="12dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Más información"
+            android:textColor="#2C365A"
+            android:textSize="15sp"
+            android:fontFamily="@font/poppins_regular"
+            android:textStyle="bold"
+            android:layout_marginEnd="6dp"/>
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_arrow_right"
+            android:contentDescription="Ver más" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:id="@+id/contenedorFragmentos"
+    android:layout_height="match_parent"
+    tools:context=".FragmentFormulario">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#7DC9AD"
+            android:padding="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- Título y botón back -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="16dp">
+
+                    <ImageButton
+                        android:id="@+id/backButton"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@android:color/transparent"
+                        android:src="@drawable/ic_arrow_back_black_24"
+                        android:contentDescription="Volver" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Registrar protectora"
+                        android:textColor="#1D3557"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:fontFamily="@font/poppins_medium" />
+                    <View
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:visibility="invisible" />
+                </LinearLayout>
+
+                <!-- Descripción -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_info_box"
+                    android:text="¿Quieres registrar tu protectora?\nRegístrala con nosotros y te contactaremos para confirmar los detalles."
+                    android:textColor="#1D3557"
+                    android:padding="12dp"
+                    android:lineSpacingExtra="0dp"
+                    android:layout_marginBottom="24dp"
+                    android:textSize="15sp"
+                    android:fontFamily="@font/poppins_regular" />
+
+                <!-- Sección datos protectora -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Datos de la protectora"
+                    android:textStyle="bold"
+                    android:textColor="#ffffff"
+                    android:layout_marginBottom="8dp"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/poppins_medium" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@drawable/background_login_form"
+                    android:elevation="4dp"
+                    android:padding="16dp"
+                    android:layout_marginBottom="24dp"
+                    android:layout_marginTop="4dp">
+
+                    <EditText android:id="@+id/editNombre"
+                        android:hint="Nombre"
+                        android:clipToOutline="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="0dp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:textColorHint="#666666" />
+
+
+                    <EditText android:id="@+id/editCapacidad"
+                        android:hint="Capacidad"
+                        android:inputType="number"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="12dp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:textColorHint="#666666" />
+
+
+                    <TextView
+                        android:text="Dirección:"
+                        android:textColor="#1D3557"
+                        android:textStyle="bold"
+                        android:textSize="18dp"
+                        android:fontFamily="@font/poppins_medium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <EditText android:id="@+id/editCalle"
+                        android:hint="Calle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="0dp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:textColorHint="#666666" />
+
+
+                    <EditText android:id="@+id/editNumero"
+                        android:hint="Número de calle"
+                        android:inputType="number"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="0dp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:textColorHint="#666666" />
+
+
+                    <EditText android:id="@+id/editCP"
+                        android:hint="Código postal"
+                        android:inputType="number"
+                        android:fontFamily="@font/poppins_regular"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="12dp"
+                        android:textColorHint="#666666" />
+
+
+                    <TextView
+                        android:text="Datos de contacto:"
+                        android:textColor="#1D3557"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/poppins_medium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <EditText android:id="@+id/editEmail"
+                        android:hint="Email"
+                        android:inputType="textEmailAddress"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="0dp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:textColorHint="#666666" />
+
+
+                    <EditText android:id="@+id/editTelefono"
+                        android:hint="Número de telefono"
+                        android:inputType="phone"
+                        android:fontFamily="@font/poppins_regular"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColorHint="#666666" />
+                </LinearLayout>
+
+                <!-- Botón confirmar -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal">
+
+                    <Button
+                        android:id="@+id/btnGuardarCambios"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Confirmar"
+                        android:textColor="#1D3557"
+                        android:backgroundTint="#EAF2EC"
+                        android:fontFamily="@font/poppins_medium"
+                        android:layout_marginTop="24dp"/>
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+</FrameLayout>

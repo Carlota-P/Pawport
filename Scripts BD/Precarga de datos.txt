@@ -1,0 +1,49 @@
+-- Inserción de datos en la tabla animal con las nuevas columnas
+INSERT INTO usuario (usuario_id, dni, alias, telefono, email, nombre, apellido1, apellido2, contrasena, rol) VALUES
+(1, '12345678A', 'carlota', '612345678', 'carlota@mail.com', 'Carlota', 'Iñiguez', 'Ruiz', '$2a$10$e5obZaXbarVgkjbUzLOty.VdaTeb9XNIoTTM60QI4bwBulpNlpAIa', 'usuario');
+
+INSERT INTO usuario (usuario_id, dni, alias, telefono, email, nombre, apellido1, apellido2, contrasena, rol) VALUES
+(2, '87654321B', 'mario', '698745123', 'mario@mail.com', 'Mario', 'López', 'García', '$2a$10$e5obZaXbarVgkjbUzLOty.VdaTeb9XNIoTTM60QI4bwBulpNlpAIa', 'usuario');
+
+-- Protectoras
+INSERT INTO protectora (protectora_id, capacidad, nombre, calle, numero_calle, cod_postal, email, contrasena, telefono, historia) VALUES
+(1, 50, 'Happy Pets', 'Calle Luna', '12', '28001', 'happypets@mail.com', '$2a$10$e5obZaXbarVgkjbUzLOty.VdaTeb9XNIoTTM60QI4bwBulpNlpAIa', 912345678,
+'Fundada en 2010, Happy Pets colabora con voluntarios y veterinarios para rescatar, rehabilitar y dar refugio temporal a animales abandonados o maltratados. Su objetivo es facilitar adopciones responsables y mejorar la vida de cada animal acogido.');
+
+INSERT INTO protectora (protectora_id, capacidad, nombre, calle, numero_calle, cod_postal, email, contrasena, telefono, historia) VALUES
+(2, 40, 'Peludos Madrid', 'Av. Sol', '34', '28045', 'peludos@mail.com', '$2a$10$e5obZaXbarVgkjbUzLOty.VdaTeb9XNIoTTM60QI4bwBulpNlpAIa', 911112222,
+'Peludos Madrid nació con la misión de ofrecer un entorno seguro a animales sin hogar. Desde hace más de una década, impulsa campañas de concienciación y trabaja con adopciones, acogidas temporales y programas de esterilización para evitar el abandono.');
+
+INSERT INTO protectora (protectora_id, capacidad, nombre, calle, numero_calle, cod_postal, email, contrasena, telefono, historia) VALUES 
+(3, 50, 'Protectora Animal', 'Av. del Rescate', '123', '28080', 'contacto@hot.org', '$2a$10$e5obZaXbarVgkjbUzLOty.VdaTeb9XNIoTTM60QI4bwBulpNlpAIa', 612345678,
+'Somos una protectora comprometida con el bienestar animal. Rescatamos perros y gatos en situación de abandono, proporcionándoles atención médica, cariño y un entorno seguro hasta encontrarles un nuevo hogar lleno de amor.');
+
+-- Animales
+INSERT INTO animal (animal_id, usuario_id, protectora_id, identificador, fecha_nacimiento, nombre, vacuna, castrado, pasaporte, sexo, animal_tipo, raza, historia) VALUES
+(1, NULL, 1, 'HP001', TO_DATE('2022-06-01', 'YYYY-MM-DD'), 'Luna', 'S', 'S', 'N', 'F', 'P', 'Labrador',
+'Luna fue encontrada sola y desnutrida en un parque de las afueras. Mostraba signos de abandono prolongado y desconfianza. Tras semanas de cuidados veterinarios y afecto, se ha recuperado por completo y está lista para encontrar un hogar lleno de amor.');
+
+INSERT INTO animal (animal_id, usuario_id, protectora_id, identificador, fecha_nacimiento, nombre, vacuna, castrado, pasaporte, sexo, animal_tipo, raza, historia) VALUES
+(2, NULL, 1, 'HP002', TO_DATE('2023-01-15', 'YYYY-MM-DD'), 'Toby', 'S', 'N', 'S', 'M', 'P', 'Beagle',
+'Toby fue abandonado por su familia tras volver de vacaciones. Estaba triste, desorientado y necesitaba compañía. Es un perro cariñoso, activo y muy inteligente, ideal para un entorno familiar donde reciba atención, paseos diarios y mucho cariño.');
+
+INSERT INTO animal (animal_id, usuario_id, protectora_id, identificador, fecha_nacimiento, nombre, vacuna, castrado, pasaporte, sexo, animal_tipo, raza, historia) VALUES
+(3, NULL, 2, 'PM001', TO_DATE('2021-09-10', 'YYYY-MM-DD'), 'Apolo', 'S', 'S', 'S', 'F', 'G', 'Persa',
+'Apolo fue rescataoa de una vivienda con síndrome de Noé, donde convivía con decenas de animales en condiciones insalubres. Estaba asustada pero no tardó en mostrar su lado más dulce. Ahora es una gata tranquila que disfruta del calor humano y los mimos.');
+
+INSERT INTO animal (animal_id, usuario_id, protectora_id, identificador, fecha_nacimiento, nombre, vacuna, castrado, pasaporte, sexo, animal_tipo, raza, historia) VALUES
+(4, NULL, 1, 'HP003', TO_DATE('2020-03-12', 'YYYY-MM-DD'), 'Rex', 'S', 'S', 'S', 'M', 'P', 'Pastor Alemán', 'Rescatado de un descampado tras ser abandonado.');
+
+INSERT INTO animal (animal_id, usuario_id, protectora_id, identificador, fecha_nacimiento, nombre, vacuna, castrado, pasaporte, sexo, animal_tipo, raza, historia) VALUES
+(5, NULL, 2, 'PM002', TO_DATE('2023-05-26', 'YYYY-MM-DD'), 'Dora', 'S', 'N', 'N', 'F', 'G', 'Europeo',
+'Dora fue rescatada de una zona industrial donde maullaba sin cesar buscando atención. A pesar del susto inicial, pronto mostró su carácter juguetón y afectuoso. Le encanta perseguir sombras y dormir en rincones cálidos. Ideal para hogares tranquilos y cariñosos.');
+
+INSERT INTO animal (animal_id, usuario_id, protectora_id, identificador, fecha_nacimiento, nombre, vacuna, castrado, pasaporte, sexo, animal_tipo, raza, historia) VALUES
+(6, NULL, 2, 'PM003', TO_DATE('2022-01-26', 'YYYY-MM-DD'), 'Noa', 'S', 'S', 'N', 'F', 'G', 'Europeo',
+'Noa fue encontrada en una colonia felina. Tenía una leve infección ocular pero respondió bien al tratamiento. Es una gata observadora, serena y muy leal. Disfruta las caricias suaves y observar desde lo alto. Busca un hogar estable donde pueda sentirse segura y querida.');
+
+INSERT INTO animal (animal_id, usuario_id, protectora_id, identificador, fecha_nacimiento, nombre, vacuna, castrado, pasaporte, sexo, animal_tipo, raza, historia) VALUES
+(7, NULL, 1, 'HP004', TO_DATE('2022-11-05', 'YYYY-MM-DD'), 'Thor', 'S', 'N', 'S', 'M', 'P', 'Bichón Maltés',
+'Thor fue entregado tras un divorcio complicado. Es pequeño pero con una gran personalidad: alegre, simpático y muy sociable. Le encantan los paseos cortos, estar en brazos y recibir atención. Se adapta muy bien a interiores y es ideal para compañía constante y afectuosa.');
+
+commit;

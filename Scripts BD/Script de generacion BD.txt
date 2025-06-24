@@ -1,0 +1,140 @@
+-- Generado por Oracle SQL Developer Data Modeler 23.1.0.087.0806
+-- en: 2025-03-20 11:12:58 CET
+-- sitio: Oracle Database 10g
+-- tipo: Oracle Database 10g
+
+-- predefined type, no DDL - MDSYS.SDO_GEOMETRY
+
+-- predefined type, no DDL - XMLTYPE
+
+-- Secuencias
+CREATE SEQUENCE seqanimal START WITH 8 INCREMENT BY 1 MAXVALUE 9999 MINVALUE 1 NOCACHE;
+CREATE SEQUENCE seqprotectora START WITH 5 INCREMENT BY 1 MAXVALUE 999 MINVALUE 1 NOCACHE;
+CREATE SEQUENCE sequsuario START WITH 5 INCREMENT BY 1 MAXVALUE 9999 MINVALUE 1 NOCACHE;
+
+-- Tabla ANIMAL
+CREATE TABLE animal (
+    animal_id        NUMBER(4) NOT NULL,
+    usuario_id       NUMBER(4),
+    protectora_id    NUMBER(4) NOT NULL,
+    identificador    VARCHAR2(52),
+    fecha_nacimiento DATE NOT NULL,
+    nombre           VARCHAR2(20) NOT NULL,
+    vacuna           CHAR(1) NOT NULL,
+    castrado         CHAR(1) NOT NULL,
+    pasaporte        CHAR(1) NOT NULL,
+    sexo             CHAR(1) NOT NULL,
+    animal_tipo      CHAR(1) NOT NULL,
+    raza             VARCHAR2(30),
+    historia         VARCHAR2(300),
+    foto             VARCHAR2(255)
+);
+
+ALTER TABLE animal ADD CONSTRAINT sexo_ck CHECK (sexo IN ('F', 'M'));
+ALTER TABLE animal ADD CONSTRAINT vacuna_ck CHECK (vacuna IN ('S', 'N'));
+ALTER TABLE animal ADD CONSTRAINT castrado_ck CHECK (castrado IN ('S', 'N'));
+ALTER TABLE animal ADD CONSTRAINT pasaporte_ck CHECK (pasaporte IN ('S', 'N'));
+ALTER TABLE animal ADD CONSTRAINT tipo_ck CHECK (animal_tipo IN ('P', 'G', 'O'));
+ALTER TABLE animal ADD CONSTRAINT animal_pk PRIMARY KEY (animal_id);
+ALTER TABLE animal ADD CONSTRAINT animal_un UNIQUE (identificador);
+
+-- Tabla PROTECTORA
+CREATE TABLE protectora (
+    protectora_id    NUMBER(4) NOT NULL,
+    capacidad        NUMBER(3) NOT NULL,
+    nombre           VARCHAR2(20) NOT NULL,
+    calle            VARCHAR2(20) NOT NULL,
+    numero_calle     CHAR(3) NOT NULL,
+    cod_postal       CHAR(5) NOT NULL,
+    email            VARCHAR2(50) NOT NULL,
+    contrasena       CHAR(60) NOT NULL,
+    telefono         NUMBER(9) NOT NULL,
+    historia         VARCHAR2(300),
+    foto             VARCHAR2(255)
+);
+
+ALTER TABLE protectora ADD CONSTRAINT capacidad_ck CHECK (capacidad >= 0);
+ALTER TABLE protectora ADD CONSTRAINT email_ck CHECK (email LIKE '%_@_%._%');
+ALTER TABLE protectora ADD CONSTRAINT protectora_pk PRIMARY KEY (protectora_id);
+ALTER TABLE protectora ADD CONSTRAINT direccion_un UNIQUE (calle, numero_calle);
+
+-- Tabla USUARIO
+CREATE TABLE usuario (
+    usuario_id   NUMBER(4) NOT NULL,
+    dni          CHAR(9) NOT NULL,
+    alias        VARCHAR2(20) NOT NULL,
+    telefono     CHAR(9) NOT NULL,
+    email        VARCHAR2(40) NOT NULL,
+    nombre       VARCHAR2(20) NOT NULL,
+    apellido1    VARCHAR2(20) NOT NULL,
+    apellido2    VARCHAR2(20),
+    contrasena   CHAR(60) NOT NULL,
+    rol          VARCHAR2(20)
+);
+
+ALTER TABLE usuario ADD CONSTRAINT usuario_ck_email CHECK (email LIKE '%_@_%._%');
+ALTER TABLE usuario ADD CONSTRAINT usuario_pk PRIMARY KEY (usuario_id);
+ALTER TABLE usuario ADD CONSTRAINT usuario_nom_un UNIQUE (alias);
+ALTER TABLE usuario ADD CONSTRAINT usuario_dni_un UNIQUE (dni);
+ALTER TABLE usuario ADD CONSTRAINT usuario_telefono_un UNIQUE (telefono);
+ALTER TABLE usuario ADD CONSTRAINT usuario_email_un UNIQUE (email);
+
+-- Relaciones
+ALTER TABLE animal
+    ADD CONSTRAINT animal_protectora_fk FOREIGN KEY (protectora_id)
+    REFERENCES protectora (protectora_id);
+
+ALTER TABLE animal
+    ADD CONSTRAINT animal_usuario_fk FOREIGN KEY (usuario_id)
+    REFERENCES usuario (usuario_id)
+    ON DELETE SET NULL;
+
+-- NUEVA TABLA: USUARIO_FAVORITOS
+CREATE TABLE favoritos (
+    usuario_id NUMBER(4) NOT NULL,
+    animal_id  NUMBER(4) NOT NULL,
+    CONSTRAINT usuario_favoritos_pk PRIMARY KEY (usuario_id, animal_id),
+    CONSTRAINT usuario_favoritos_usuario_fk FOREIGN KEY (usuario_id)REFERENCES usuario (usuario_id)ON DELETE CASCADE,
+    CONSTRAINT usuario_favoritos_animal_fk FOREIGN KEY (animal_id)REFERENCES animal (animal_id)ON DELETE CASCADE
+);
+
+
+-- Informe de Resumen de Oracle SQL Developer Data Modeler:
+-- CREATE TABLE                             3
+-- CREATE INDEX                             0
+-- ALTER TABLE                             18
+-- CREATE VIEW                              0
+-- ALTER VIEW                               0
+-- CREATE PACKAGE                           0
+-- CREATE PACKAGE BODY                      0
+-- CREATE PROCEDURE                         0
+-- CREATE FUNCTION                          0
+-- CREATE TRIGGER                           0
+-- ALTER TRIGGER                            0
+-- CREATE COLLECTION TYPE                   0
+-- CREATE STRUCTURED TYPE                   0
+-- CREATE STRUCTURED TYPE BODY              0
+-- CREATE CLUSTER                           0
+-- CREATE CONTEXT                           0
+-- CREATE DATABASE                          0
+-- CREATE DIMENSION                         0
+-- CREATE DIRECTORY                         0
+-- CREATE DISK GROUP                        0
+-- CREATE ROLE                              0
+-- CREATE ROLLBACK SEGMENT                  0
+-- CREATE SEQUENCE                          0
+-- CREATE MATERIALIZED VIEW                 0
+-- CREATE MATERIALIZED VIEW LOG             0
+-- CREATE SYNONYM                           0
+-- CREATE TABLESPACE                        0
+-- CREATE USER                              0
+--
+-- DROP TABLESPACE                          0
+-- DROP DATABASE                            0
+--
+-- ORDS DROP SCHEMA                         0
+-- ORDS ENABLE SCHEMA                       0
+-- ORDS ENABLE OBJECT                       0
+--
+-- ERRORES                                  0
+-- ADVERTENCIAS                              0

@@ -1,0 +1,59 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@android:color/white"
+    android:padding="24dp">
+
+    <!-- Título -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Buscar protectora"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#1D3557"
+        android:gravity="center"
+        android:fontFamily="@font/poppins_semibold"
+        android:paddingBottom="24dp" />
+
+    <!-- Campo de búsqueda con lupa -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@drawable/background_busqueda_edittext"
+        android:layout_marginBottom="24dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp">
+
+        <ImageView
+            android:id="@+id/iconLupa"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_search_black_24" />
+
+        <EditText
+            android:id="@+id/editNombreProtectora"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toEndOf="@id/iconLupa"
+            android:layout_marginStart="12dp"
+            android:hint="Nombre de la protectora"
+            android:background="@android:color/transparent"
+            android:inputType="textPersonName"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:fontFamily="@font/poppins_regular" />
+    </RelativeLayout>
+
+    <!-- Botón de búsqueda -->
+    <Button
+        android:id="@+id/btnBuscar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Buscar"
+        android:backgroundTint="#4CB592"
+        android:fontFamily="@font/poppins_regular"
+        android:layout_marginTop="10dp" />
+</LinearLayout>

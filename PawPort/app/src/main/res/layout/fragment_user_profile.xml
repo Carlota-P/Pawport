@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#D7EFE3"
+    tools:context=".FragmentUser_profile">
+
+    <!-- HEADER -->
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:orientation="horizontal"
+        android:background="#75C6A2"
+        android:padding="15dp"
+        android:gravity="center_vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/logo"
+            android:contentDescription="Logo"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Mi perfil"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/poppins_semibold" />
+
+        <ImageButton
+            android:id="@+id/imageButtonSettings"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@null"
+            android:padding="4dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_settings"
+            android:contentDescription="Ajustes" />
+    </LinearLayout>
+
+    <!-- SCROLL CONTENT -->
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintTop_toBottomOf="@id/header"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- PERFIL -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_marginBottom="16dp">
+
+                <TextView
+                    android:id="@+id/tvAlias"
+                    android:text="Mariii"
+                    android:textColor="#2C365A"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/poppins_regular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/tvNombreCompleto"
+                    android:text="María Hernández Ruiz"
+                    android:textColor="#2C365A"
+                    android:fontFamily="@font/poppins_regular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <!-- BIENVENIDA -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_app_description"
+                android:orientation="vertical"
+                android:padding="12dp"
+                android:layout_marginBottom="20dp">
+
+                <TextView
+                    android:text="¡Estamos encantados de tenerte!"
+                    android:textColor="#6CB295"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/poppins_medium"
+                    android:textAlignment="center"
+                    android:textSize="16dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:text="¡Bienvenido a PawPort!🐾 Tu compañero ideal te está esperando. Explora, conecta y da un nuevo hogar lleno de amor a un amigo de cuatro patas. ¡Adopta y cambia vidas!"
+                    android:textColor="#2C365A"
+                    android:textAlignment="center"
+                    android:fontFamily="@font/poppins_regular"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp" />
+            </LinearLayout>
+
+            <!-- FAVORITOS -->
+            <TextView
+                android:text="Favoritos:"
+                android:textColor="#66BC99"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:fontFamily="@font/poppins_medium"
+                android:layout_marginTop="16sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:id="@+id/favoritosBox"
+                android:layout_width="360dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="5dp"
+                android:background="@drawable/background_profile_options"
+                android:layout_marginTop="8dp"
+                android:gravity="center_vertical"
+                android:layout_gravity="center_horizontal">
+
+                <ImageView
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:src="@drawable/ic_paw_green"
+                    android:contentDescription="paw"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Animales guardados"
+                    android:textSize="15sp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:textColor="#2C365A"
+                    android:layout_marginStart="12dp" />
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_arrow_right"
+                    android:contentDescription="Right_arrow"/>
+            </LinearLayout>
+
+            <!-- FYQ -->
+            <TextView
+                android:text="FYQ:"
+                android:textColor="#66BC99"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:fontFamily="@font/poppins_medium"
+                android:layout_marginTop="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:id="@+id/fyqBox"
+                android:layout_width="360dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="5dp"
+                android:background="@drawable/background_profile_options"
+                android:layout_marginTop="8dp"
+                android:gravity="center_vertical"
+                android:layout_gravity="center_horizontal">
+
+                <ImageView
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:src="@drawable/ic_help_green"
+                    android:contentDescription="Question_mark"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Preguntas frecuentes"
+                    android:textSize="15sp"
+                    android:textColor="#2C365A"
+                    android:fontFamily="@font/poppins_regular"
+                    android:layout_marginStart="12dp" />
+
+                <ImageView
+                    android:id="@+id/ic_arrowIcon"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_arrow_right" />
+            </LinearLayout>
+
+            <!-- FYQ CONTENT -->
+            <LinearLayout
+                android:id="@+id/fyqContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone"
+                android:padding="12dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/background_profile_options">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="1. ¿Cómo adopto un animal?"
+                    android:fontFamily="@font/poppins_regular"
+                    android:textColor="#2C365A"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="4dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_regular"
+                    android:text="Solo tienes que buscar uno que te guste y contactar con la protectora. Puedes hacerlo directamente desde la ficha del animal."
+                    android:textColor="#2C365A"/>
+
+                <View android:layout_width="match_parent" android:layout_height="8dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_regular"
+                    android:text="2. ¿Cómo guardo animales como favoritos?"
+                    android:textColor="#2C365A"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="4dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_regular"
+                    android:text="Pulsa el icono del corazón en la parte superior derecha de la ficha del animal. Lo verás luego en la sección de favoritos."
+                    android:textColor="#2C365A"/>
+
+                <View android:layout_width="match_parent" android:layout_height="8dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_regular"
+                    android:text="3. ¿Qué hago si olvido cerrar sesión?"
+                    android:textColor="#2C365A"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="4dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_regular"
+                    android:text="No hay problema, puedes seguir desde donde lo dejaste al volver. Pero recomendamos cerrar sesión en dispositivos compartidos."
+                    android:textColor="#2C365A"/>
+
+                <View android:layout_width="match_parent" android:layout_height="8dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_regular"
+                    android:text="4. ¿Cómo contacto con el soporte?"
+                    android:textColor="#2C365A"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="4dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Puedes escribirnos a nuestro correo pawport.contacto@gmail.com. ¡Estamos encantados de ayudarte!"
+                    android:textColor="#2C365A"
+                    android:fontFamily="@font/poppins_regular"
+                    android:textSize="14sp"
+                    android:autoLink="email"
+                    android:linksClickable="true"
+                    android:focusable="true"
+                    android:clickable="true" />
+
+
+            </LinearLayout>
+
+            <!-- SOBRE NOSOTROS -->
+            <TextView
+                android:text="Sobre nosotros:"
+                android:textColor="#66BC99"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:layout_marginTop="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:id="@+id/ayudaBox"
+                android:layout_width="360dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="5dp"
+                android:fontFamily="@font/poppins_medium"
+                android:background="@drawable/background_profile_options"
+                android:layout_marginTop="8dp"
+                android:gravity="center_vertical"
+                android:layout_gravity="center_horizontal">
+
+                <ImageView
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:src="@drawable/ic_fyq_green"
+                    android:contentDescription="information"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Conócenos"
+                    android:fontFamily="@font/poppins_regular"
+                    android:textSize="15sp"
+                    android:textColor="#2C365A"
+                    android:layout_marginStart="12dp" />
+
+                <ImageView
+                    android:id="@+id/ic_arrowIcon2"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_arrow_right" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ayudaContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone"
+                android:padding="12dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="32dp"
+                android:background="@drawable/background_profile_options">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#2C365A"
+                    android:textSize="14sp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:lineSpacingExtra="6dp"
+                    android:text="PawPort nació con un propósito claro: tender un puente entre personas dispuestas a adoptar y animales que esperan una segunda oportunidad. Creemos que cada historia puede tener un nuevo comienzo, y queremos formar parte de ello.\n\nNuestro equipo está formado por desarrolladores, diseñadores y amantes de los animales que han unido fuerzas para crear una app intuitiva, útil y con alma. Cada detalle está pensado para facilitar la adopción y acompañar a refugios y adoptantes en el camino.\n\nGracias por formar parte de esta comunidad. Si tienes ideas, quieres colaborar o simplemente saludar, estamos a un clic de distancia. Juntos, podemos cambiar vidas." />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@android:color/white">
+
+    <!-- Título -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Búsqueda avanzada"
+        android:textSize="20sp"
+        android:fontFamily="@font/poppins_medium"
+        android:textStyle="bold"
+        android:textColor="#1D3557"
+        android:gravity="center"
+        android:paddingBottom="16dp" />
+
+    <!-- Especie -->
+    <TextView
+        style="@style/FormEditTextCompact"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_regular"
+        android:textSize="16dp"
+        android:text="Especie" />
+
+    <Spinner
+        style="@style/FormEditTextCompact"
+        android:id="@+id/spinnerEspecie"
+        android:fontFamily="@font/poppins_regular"
+        android:layout_height="wrap_content" />
+
+    <!-- Sexo -->
+    <TextView
+        style="@style/FormEditTextCompact"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_regular"
+        android:textSize="16dp"
+        android:text="Sexo" />
+
+    <Spinner
+        style="@style/FormEditTextCompact"
+        android:id="@+id/spinnerSexo"
+        android:fontFamily="@font/poppins_regular"
+        android:layout_height="wrap_content" />
+
+    <!-- Edad -->
+    <TextView
+        style="@style/FormEditTextCompact"
+        android:layout_height="wrap_content"
+        android:textSize="16dp"
+        android:fontFamily="@font/poppins_regular"
+        android:text="Edad máxima (años)" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginTop="12dp">
+
+        <EditText
+            android:id="@+id/editEdad"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:hint="0"
+            android:textAlignment="center"
+            android:fontFamily="@font/poppins_regular"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/edadFormateada"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="años máximo"
+            android:textColor="#777777"
+            android:textSize="14sp"
+            android:fontFamily="@font/poppins_regular"/>
+    </LinearLayout>
+
+
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="2"
+        android:rowCount="2"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:alignmentMode="alignMargins"
+        android:columnOrderPreserved="false"
+        android:padding="8dp">
+
+        <CheckBox
+            android:id="@+id/checkVacunado"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_row="0"
+            android:layout_column="0"
+            android:fontFamily="@font/poppins_regular"
+            android:text="Vacunado" />
+
+        <CheckBox
+            android:id="@+id/checkCastrado"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_row="0"
+            android:layout_column="1"
+            android:fontFamily="@font/poppins_regular"
+            android:text="Castrado" />
+
+        <CheckBox
+            android:id="@+id/checkPasaporte"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_row="1"
+            android:layout_column="0"
+            android:fontFamily="@font/poppins_regular"
+            android:text="Pasaporte" />
+
+        <CheckBox
+            android:id="@+id/checkMicrochip"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_row="1"
+            android:layout_column="1"
+            android:fontFamily="@font/poppins_regular"
+            android:text="Microchip" />
+    </GridLayout>
+
+
+
+    <!-- Botón de buscar -->
+    <Button
+        android:id="@+id/btnBuscar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Buscar"
+        android:backgroundTint="#4CB592"
+        android:fontFamily="@font/poppins_regular"
+        android:layout_marginTop="16dp" />
+</LinearLayout>

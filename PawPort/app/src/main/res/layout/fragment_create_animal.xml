@@ -1,0 +1,541 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#75C6A2">
+
+    <!-- HEADER -->
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:gravity="center_vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageButton
+            android:id="@+id/backButton"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_arrow_back_black_24"
+            android:contentDescription="Volver" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Añadir animal"
+            android:fontFamily="@font/poppins_semibold"
+            android:textSize="25sp"
+            android:textColor="@android:color/white"
+            android:gravity="center"
+            android:layout_marginEnd="40dp"/>
+    </LinearLayout>
+
+    <!-- SCROLLABLE CONTENT -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#cbe5d9"
+        android:padding="16dp"
+        app:layout_constraintTop_toBottomOf="@id/header"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/generalWarning"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="* Los campos marcados con * son obligatorios"
+            android:textColor="#e76c6c"
+            android:fontFamily="@font/poppins_regular"
+            android:textSize="14sp"
+            android:gravity="start" />
+        <!-- android:visibility="gone" -->
+
+        <!-- Fotos -->
+        <TextView
+            android:text="Foto:"
+            android:textColor="#4CB592"
+            android:textSize="18dp"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="@font/poppins_semibold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/background_photos"
+            android:padding="8dp"
+            android:gravity="center">
+
+            <ImageButton
+                android:id="@+id/btnSeleccionarImagen"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_gravity="center"
+                android:scaleType="centerCrop"
+                android:background="@android:color/transparent"
+                android:contentDescription="Seleccionar imagen"
+                android:src="@drawable/ic_image" />
+        </FrameLayout>
+
+        <!-- Nombre -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="*"
+                android:textSize="18sp"
+                android:fontFamily="@font/poppins_semibold"
+                android:textColor="#e76c6c"
+                android:layout_marginStart="4dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nombre"
+                android:textSize="18sp"
+                android:fontFamily="@font/poppins_semibold"
+                android:textColor="#4CB592" />
+        </LinearLayout>
+
+
+        <EditText
+                android:id="@+id/editTextNombre"
+                android:hint="Nombre"
+                android:padding="5dp"
+                android:layout_marginBottom="12dp"
+            android:textSize="16sp"
+            android:fontFamily="@font/poppins_regular"
+                android:background="@drawable/background_text_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+
+            <!-- Detalles -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Detalles del animal:"
+                android:textColor="#4CB592"
+                android:textSize="18dp"
+                android:fontFamily="@font/poppins_semibold"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="4dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="*"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:textColor="#e76c6c"
+                    android:layout_marginStart="4dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tipo de animal:"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:textColor="#18375D" />
+            </LinearLayout>
+
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/radioPerro"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Perro"
+                    android:fontFamily="@font/poppins_regular"
+                    android:textSize="14sp"
+                    android:layout_marginEnd="8dp" />
+
+
+                <RadioButton
+                    android:id="@+id/radioGato"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Gato"
+                    android:fontFamily="@font/poppins_regular"
+                    android:textSize="14dp"
+                    android:layout_marginEnd="8dp" />
+
+                <RadioButton
+                    android:id="@+id/radioOtro"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Otro"
+                    android:fontFamily="@font/poppins_regular"
+                    android:textSize="14dp" />
+            </RadioGroup>
+        </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Raza:"
+                    android:fontFamily="@font/poppins_regular"
+                    android:textColor="#18375D"
+                    android:textSize="16sp"
+                    android:layout_marginEnd="8dp" />
+
+                <EditText
+                    android:id="@+id/editTextRaza"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="15dp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:padding="5dp"
+                    android:hint="Raza del animal"
+                    android:background="@drawable/background_text_input"/>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="8dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="4dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="*"
+                        android:textSize="18sp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:textColor="#e76c6c"
+                        android:layout_marginStart="4dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Fecha de nacimiento:"
+                        android:fontFamily="@font/poppins_regular"
+                        android:textColor="#18375D"
+                        android:textSize="16sp"
+                        android:layout_marginEnd="8dp"/>
+                </LinearLayout>
+
+                <EditText
+                    android:id="@+id/editTextFechaNacimiento"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="dd/mm/yyyy"
+                    android:fontFamily="@font/poppins_regular"
+                    android:inputType="date"
+                    android:textSize="14dp"
+                    android:padding="5dp"
+                    android:background="@drawable/background_text_input"/>
+            </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="8dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="4dp">
+
+                <TextView
+                    android:id="@+id/labelIdentificador"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Microchip: "
+                    android:textSize="16sp"
+                    android:labelFor="@id/editTextIdentificador"
+                    android:fontFamily="@font/poppins_regular"
+                    android:textColor="#18375D" />
+
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/editTextIdentificador"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Ej. 123ABC456"
+                android:textSize="14dp"
+                android:padding="5dp"
+                android:fontFamily="@font/poppins_regular"
+                android:background="@drawable/background_text_input" />
+        </LinearLayout>
+
+
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="12dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="4dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="*"
+                        android:textSize="18sp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:textColor="#e76c6c"
+                        android:layout_marginStart="4dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Sexo:"
+                        android:fontFamily="@font/poppins_regular"
+                        android:textColor="#18375D"
+                        android:textSize="16sp"
+                        android:layout_marginEnd="8dp"/>
+                </LinearLayout>
+
+
+
+                <RadioGroup
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/radioMacho"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Macho"
+                        android:fontFamily="@font/poppins_regular"
+                        android:textSize="14dp"
+                        android:layout_marginEnd="16dp"/>
+
+                    <RadioButton
+                        android:id="@+id/radioHembra"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="14dp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="Hembra"/>
+                </RadioGroup>
+            </LinearLayout>
+
+
+
+
+            <!-- Checkboxes -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Detalles adicionales:"
+                android:textColor="#4CB592"
+                android:fontFamily="@font/poppins_semibold"
+                android:textSize="18dp"/>
+
+            <!-- Historia -->
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="2"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="8dp"
+                android:alignmentMode="alignMargins"
+                android:rowOrderPreserved="false"
+                android:gravity="center">
+
+            <!-- Vacuna -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_gravity="center">
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Vacuna:"
+                    android:textColor="#1D3557"
+                    android:fontFamily="@font/poppins_regular"
+                    android:textSize="14sp"
+                    android:layout_marginEnd="4dp"
+                    android:layout_gravity="center_vertical"/>
+
+                <CheckBox
+                    android:id="@+id/checkVacuna"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_gravity="center">
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pasaporte:"
+                    android:textColor="#1D3557"
+                    android:fontFamily="@font/poppins_regular"
+                    android:textSize="14sp"
+                    android:layout_marginEnd="4dp"
+                    android:layout_gravity="center_vertical"/>
+
+                <CheckBox
+                    android:id="@+id/checkPasaporte"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_gravity="center">
+
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Castrado:"
+                    android:textColor="#1D3557"
+                    android:fontFamily="@font/poppins_regular"
+                    android:textSize="14sp"
+                    android:layout_marginEnd="4dp"
+                    android:layout_gravity="center_vertical"/>
+
+                <CheckBox
+                    android:id="@+id/checkCastrado"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                </LinearLayout>
+
+        </GridLayout>
+
+
+        <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Historia"
+        android:textColor="#4CB592"
+        android:fontFamily="@font/poppins_semibold"
+        android:textSize="18dp"
+        android:layout_marginBottom="4dp"/>
+
+            <EditText
+                android:id="@+id/historiaTxt"
+                android:padding="12dp"
+                android:gravity="top|start"
+                android:minHeight="100dp"
+                android:textSize="14dp"
+                android:fontFamily="@font/poppins_regular"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/background_text_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <!-- Botones -->
+            <LinearLayout
+                android:id="@+id/bottomBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="16dp"
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/btnConfirmar"
+                    android:text="Confirmar"
+                    android:textColor="#ffffff"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/poppins_regular"
+                    android:layout_marginEnd="8dp"
+                    android:backgroundTint="#4CB592"/>
+
+                <Button
+                    android:id="@+id/btnEliminar"
+                    android:text="Eliminar"
+                    android:textColor="#ffffff"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/poppins_regular"
+                    android:layout_marginStart="8dp"
+                    android:backgroundTint="#F07C7C"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

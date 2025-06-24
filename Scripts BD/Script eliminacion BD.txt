@@ -1,0 +1,14 @@
+drop table ANIMAL CASCADE CONSTRAINTS;
+
+drop table PROTECTORA CASCADE CONSTRAINTS;
+
+drop table USUARIO CASCADE CONSTRAINTS;
+
+drop table FAVORITOS CASCADE CONSTRAINTS;
+
+drop sequence seqanimal;
+
+drop sequence seqprotectora;
+
+drop sequence sequsuario;
+

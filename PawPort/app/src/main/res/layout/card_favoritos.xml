@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="16dp"
+    android:orientation="vertical"
+    android:background="@drawable/background_animal_card"
+    android:padding="10dp">
+
+
+    <!-- Parte superior: imagen + datos + flecha -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Imagen -->
+        <ImageView
+            android:id="@+id/animalImage"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/rex"
+            android:contentDescription="Foto de mascota"
+            android:layout_alignParentStart="true" />
+
+        <!-- Nombre y edad -->
+        <LinearLayout
+            android:id="@+id/textContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/animalImage"
+            android:layout_marginStart="12dp"
+            android:layout_alignTop="@id/animalImage"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Missi"
+                android:fontFamily="@font/poppins_regular"
+                android:textColor="#2C365A"
+                android:textStyle="bold"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/textAge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3 meses"
+                android:fontFamily="@font/poppins_regular"
+                android:textColor="#2C365A"
+                android:textSize="13sp" />
+        </LinearLayout>
+
+        <!-- Flecha -->
+        <ImageView
+            android:id="@+id/buttonMore"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_arrow_right"
+            android:layout_alignParentEnd="true"
+            android:layout_alignTop="@id/animalImage"
+            android:contentDescription="Ver más" />
+    </RelativeLayout>
+
+    <!-- Descripción -->
+    <TextView
+        android:id="@+id/textDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/background_description"
+        android:padding="9dp"
+        android:fontFamily="@font/poppins_regular"
+        android:maxLines="3"
+        android:ellipsize="end"
+        android:text="Missi es una pequeña gatita de ojos curiosos y suaves maullidos. Fue encontrada en una fría noche de lluvia..."
+        android:textColor="#2C365A"
+        android:textSize="14sp"
+        android:lineSpacingExtra="0dp"/>
+</LinearLayout>

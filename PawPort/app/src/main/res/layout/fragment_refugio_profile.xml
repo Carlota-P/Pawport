@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#CBE5D9"
+    tools:context=".FragmentRefugio_profile">
+
+    <!-- Header -->
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="#75C6A2"
+        android:padding="16dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/logo"
+            android:contentDescription="Logo" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Refugio"
+            android:textColor="@android:color/white"
+            android:textAlignment="center"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/poppins_semibold"/>
+
+        <ImageButton
+            android:id="@+id/imageButtonSettings"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@null"
+            android:padding="4dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_settings"
+            android:contentDescription="Ajustes" />
+    </LinearLayout>
+
+    <!-- Contenido scroll -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintTop_toBottomOf="@id/header"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Card con info refugio -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="16dp"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="20dp">
+
+                <ImageView
+                    android:id="@+id/logoProtectora"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:src="@drawable/ic_image"
+                    android:contentDescription="Logo refugio"
+                    android:background="@drawable/background_description"
+                    android:layout_marginEnd="12dp" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/nombreTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Refugio esperanza"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="#1D3557"
+                        android:layout_marginBottom="4dp"
+                        android:fontFamily="@font/poppins_semibold" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="4dp">
+
+                        <TextView
+                            android:id="@+id/emailTextView"
+                            android:text="director@refugioesperanza.com"
+                            android:textSize="14sp"
+                            android:textColor="@color/coral"
+                            android:fontFamily="@font/poppins_regular"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:id="@+id/telefonoTextView"
+                            android:text="+625 679 432"
+                            android:textSize="14sp"
+                            android:textColor="#1D3557"
+                            android:fontFamily="@font/poppins_regular"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Historia -->
+            <TextView
+                android:text="Nuestra historia"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#75C6A2"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/poppins_medium"/>
+
+            <TextView
+                android:id="@+id/historiaTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_description"
+                android:padding="8dp"
+                android:textColor="#2C365A"
+                android:textSize="14sp"
+                android:textAlignment="center"
+                android:lineSpacingExtra="0dp"
+                android:fontFamily="@font/poppins_regular"
+                android:layout_marginBottom="20dp"
+                android:text="En Refugio esperanza, trabajamos incansablemente para ofrecer un futuro nuevo..." />
+
+            <!-- Dirección -->
+            <TextView
+                android:text="¿Dónde estamos?"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#75C6A2"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/poppins_medium" />
+
+            <TextView
+                android:id="@+id/direccionTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_description"
+                android:padding="8dp"
+                android:text="Calle Esperanza, Nº 45, CP 39001"
+                android:textColor="#2C365A"
+                android:textSize="14sp"
+                android:fontFamily="@font/poppins_regular"
+                android:layout_marginBottom="20dp" />
+
+            <!-- En adopción -->
+            <TextView
+                android:text="En adopción"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#75C6A2"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/poppins_medium"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerAdopcion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"
+                android:clipToPadding="false"
+                android:paddingBottom="16dp"
+                android:minHeight="500dp" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

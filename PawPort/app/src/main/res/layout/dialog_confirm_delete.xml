@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:background="@color/white"
+    android:gravity="center">
+
+    <TextView
+        android:id="@+id/textDialogTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="¿Confirmar eliminación?"
+        android:textSize="18sp"
+        android:fontFamily="@font/poppins_medium"
+        android:textStyle="bold"
+        android:textColor="@color/dark_blue"
+        android:layout_marginBottom="16dp" />
+
+    <TextView
+        android:id="@+id/textDialogMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="¿Estás seguro de que deseas continuar? Esta acción no se puede deshacer."
+        android:textSize="15sp"
+        android:fontFamily="@font/poppins_regular"
+        android:textColor="@color/dark_blue"
+        android:layout_marginBottom="24dp"
+        android:textAlignment="center" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/btnCancelar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/green"
+            android:fontFamily="@font/poppins_regular"
+            android:text="Cancelar" />
+
+        <Button
+            android:id="@+id/btnConfirmar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Eliminar"
+            android:textColor="@android:color/white"
+            android:backgroundTint="@color/coral"
+            android:fontFamily="@font/poppins_regular"
+            android:layout_marginStart="12dp"/>
+    </LinearLayout>
+</LinearLayout>

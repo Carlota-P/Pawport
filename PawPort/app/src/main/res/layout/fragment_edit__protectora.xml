@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#D7EFE3"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal">
+
+        <!-- Título y botón volver -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="40dp"
+            android:gravity="center_vertical">
+
+            <ImageButton
+                android:id="@+id/backButton"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginEnd="8dp"
+                android:background="@android:color/transparent"
+                android:contentDescription="Volver"
+                android:src="@drawable/ic_arrow_back_black_24" />
+
+            <TextView
+                android:id="@+id/tvTitulo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Editar protectora"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:textColor="#2C365A"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center" />
+
+            <View
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:visibility="invisible" />
+        </LinearLayout>
+
+        <!-- Campos de formulario -->
+        <EditText
+            android:id="@+id/editNombreProtectora"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:backgroundTint="#66BC99"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nombre de la protectora"
+            android:inputType="textCapWords"
+            android:textSize="16sp"
+            android:padding="9dp"
+            android:fontFamily="@font/poppins_regular"
+            style="@style/FormEditTextCompact" />
+
+        <EditText
+            android:id="@+id/editCapacidadProtectora"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#66BC99"
+            android:hint="Capacidad de la protectora"
+            android:inputType="number"
+            android:padding="9dp"
+            android:textSize="16sp"
+            android:fontFamily="@font/poppins_regular"
+            style="@style/FormEditTextCompact" />
+
+        <EditText
+            android:id="@+id/editTelefono"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:hint="Teléfono"
+            android:inputType="phone"
+            android:backgroundTint="#66BC99"
+            android:padding="9dp"
+            android:textSize="16sp"
+            android:fontFamily="@font/poppins_regular"
+            style="@style/FormEditTextCompact" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dirección:"
+            android:textColor="#1D3557"
+            android:layout_gravity="left"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:fontFamily="@font/poppins_medium"
+            android:layout_marginTop="12dp" />
+
+        <EditText
+            android:id="@+id/editCalle"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:hint="Calle"
+            android:backgroundTint="#66BC99"
+            android:padding="9dp"
+            android:textSize="16sp"
+            android:fontFamily="@font/poppins_regular"
+            style="@style/FormEditTextCompact" />
+
+        <EditText
+            android:id="@+id/editNumero"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:hint="Número de calle"
+            android:backgroundTint="#66BC99"
+            android:inputType="number"
+            android:padding="9dp"
+            android:textSize="16sp"
+            android:fontFamily="@font/poppins_regular"
+            style="@style/FormEditTextCompact" />
+
+        <EditText
+            android:id="@+id/editCP"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:hint="Código postal"
+            android:inputType="number"
+            android:backgroundTint="#66BC99"
+            android:padding="9dp"
+            android:textSize="16sp"
+            android:fontFamily="@font/poppins_regular"
+            style="@style/FormEditTextCompact" />
+
+        <EditText
+            android:id="@+id/editProvincia"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:hint="Provincia"
+            android:backgroundTint="#66BC99"
+            android:padding="9dp"
+            android:textSize="16sp"
+            android:fontFamily="@font/poppins_regular"
+            style="@style/FormEditTextCompact" />
+
+        <EditText
+            android:id="@+id/editComunidad"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:hint="Comunidad Autónoma"
+            android:backgroundTint="#66BC99"
+            android:padding="9dp"
+            android:textSize="16sp"
+            android:fontFamily="@font/poppins_regular"
+            style="@style/FormEditTextCompact" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Descripción:"
+            android:textColor="#1D3557"
+            android:layout_gravity="left"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:fontFamily="@font/poppins_medium"
+            android:layout_marginTop="12dp" />
+
+        <EditText
+            android:id="@+id/historiaEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Historia de la protectora"
+            android:inputType="textMultiLine"
+            android:gravity="top"
+            android:minLines="4"
+            android:maxLines="10"
+            android:textSize="16sp"
+            android:padding="12dp"
+            android:fontFamily="@font/poppins_regular"
+            android:textColorHint="#666666"
+            android:background="@drawable/background_text_input" />
+
+
+
+        <!-- Botón guardar -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal">
+
+            <Button
+                android:id="@+id/btnGuardarCambios"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Guardar cambios"
+                android:backgroundTint="#66BC99"
+                android:textColor="@android:color/white"
+                android:fontFamily="@font/poppins_medium"
+                android:layout_marginTop="24dp" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
