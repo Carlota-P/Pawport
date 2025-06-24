@@ -20,7 +20,7 @@ import org.mindrot.jbcrypt.BCrypt;
 
 /**
  * Clase que implenta todos los métodos necesarios para gestionar la base de datos ACOGER
- * @author DAM214
+ * @author Carlota Pertusa Amo
  */
 public class AcogerCad {
 
@@ -55,6 +55,12 @@ public class AcogerCad {
         }
     }
 
+    /**
+     * Método que permite a un usuario iniciar sesión verificando email y contraseña.
+     * @param email Email introducido por el usuario.
+     * @param passwordPlano Contraseña sin encriptar.
+     * @return Objeto Usuario si las credenciales son válidas; null en caso contrario.
+     */
     public Usuario loginUsuario(String email, String passwordPlano) {
         String sql = "SELECT * FROM USUARIO WHERE EMAIL = ?";
 
@@ -84,11 +90,15 @@ public class AcogerCad {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
         return null;
     }
-
-        
+  
+    /**
+     * Método que permite a una protectora iniciar sesión verificando email y contraseña.
+     * @param email Email introducido por la protectora.
+     * @param passwordPlano Contraseña sin encriptar.
+     * @return Objeto Protectora si las credenciales son válidas; null en caso contrario.
+     */
     public Protectora loginProtectora(String email, String passwordPlano) {
         String sql = "SELECT * FROM PROTECTORA WHERE EMAIL = ?";
 
@@ -118,10 +128,8 @@ public class AcogerCad {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
         return null;
     }
-
 
 
     /**
@@ -371,8 +379,6 @@ public class AcogerCad {
         	    "JOIN PROTECTORA p ON a.PROTECTORA_ID = p.PROTECTORA_ID " +
         	    "WHERE a.ANIMAL_ID = " + animalId;
 
-
-
         try {
             Connection conexion = DriverManager.getConnection(cadenaConexionBD, usuario, contrasena);
             Statement sentencia = conexion.createStatement();
@@ -540,7 +546,6 @@ public class AcogerCad {
             sentenciaPreparada.setString(8, protectora.getHistoria());
             sentenciaPreparada.setString(9, hashedPassword);
 
-
             registrosAfectados = sentenciaPreparada.executeUpdate();
 
         } catch (SQLException ex) {
@@ -623,7 +628,6 @@ public class AcogerCad {
 
     /**
      * Método que implementa la acutalización de una protectora
-     *
      * @param protectoraId Identificador de la protectora que se quiere actualizar
      * @param protectora Objeto de la clase Protectora que almaena los nuevos
      * valores a asignar a protectora
@@ -648,13 +652,8 @@ public class AcogerCad {
             sentenciaPreparada.setInt(7, protectora.getTelefono());
             sentenciaPreparada.setString(8, protectora.getHistoria());
             sentenciaPreparada.setInt(9, protectoraId);
-            
-            System.out.println("→ Ejecutando UPDATE para protectora con ID: " + protectoraId);
-            System.out.println("→ Datos: " + protectora.toString());
 
             registrosAfectados = sentenciaPreparada.executeUpdate();
-
-            System.out.println("→ Filas actualizadas: " + registrosAfectados);
             
             sentenciaPreparada.close();
             conexion.close();
@@ -699,6 +698,7 @@ public class AcogerCad {
         }
         return registrosAfectados;
     }
+
 
     /**
      * Método que implementa la lectura de una protectora
@@ -764,6 +764,7 @@ public class AcogerCad {
         return protectora;
     }
 
+
     /**
      * Método que implementa la lectura de todas las protectoras
      * @return Retorna un ArrayList de todos los objetos con la información de
@@ -793,9 +794,7 @@ public class AcogerCad {
                 protectora.setHistoria(resultado.getString("HISTORIA"));
                 protectora.setFoto(resultado.getString("FOTO"));
 
-
                 listaProtectoras.add(protectora);
-
             }
             resultado.close();
             sentencia.close();
@@ -831,10 +830,11 @@ public class AcogerCad {
     }
     
     /**
-     * Método para ver los animales registrados por protectora
-     * @param protectoraId
-     * @return
-     * @throws ExcepcionesAcoger 
+     * Método que obtiene todos los animales registrados por una protectora concreta.
+     * Realiza una consulta filtrando por PROTECTORA_ID.
+     * @param protectoraId ID de la protectora cuyos animales se desean consultar.
+     * @return Lista de animales asociados a dicha protectora.
+     * @throws ExcepcionesAcoger si ocurre un error durante la consulta a la base de datos.
      */
     
     public ArrayList<Animal> obtenerAnimalesPorProtectora(Integer protectoraId) throws ExcepcionesAcoger {
@@ -1169,7 +1169,15 @@ public class AcogerCad {
         return user;
     }
     
-    
+    /**
+     * Método que inserta una relación de favorito entre un usuario y un animal.
+     * Añade un registro en la tabla FAVORITOS con los IDs indicados.
+     * @param usuarioId ID del usuario que guarda el animal como favorito.
+     * @param animalId ID del animal que se marca como favorito.
+     * @return Número de registros insertados (1 si se insertó correctamente).
+     * @throws ExcepcionesAcoger si ya existe la relación o si hay errores de integridad referencial.
+     */
+
     public Integer insertarFavorito(Integer usuarioId, Integer animalId) throws ExcepcionesAcoger {
         String dml = "INSERT INTO favoritos (usuario_id, animal_id) VALUES (?, ?)";
         int registrosAfectados = 0;
@@ -1207,7 +1215,15 @@ public class AcogerCad {
         return registrosAfectados;
     }
 
-    
+    /**
+     * Método que elimina la relación de favorito entre un usuario y un animal.
+     * Borra el registro correspondiente en la tabla FAVORITOS.
+     * @param usuarioId ID del usuario que quitó el favorito.
+     * @param animalId ID del animal que se quiere eliminar de favoritos.
+     * @return Número de registros eliminados (1 si se eliminó, 0 si no existía).
+     * @throws ExcepcionesAcoger si ocurre un error durante la operación con la base de datos.
+     */
+
     public Integer eliminarAnimalDeUsuario(Integer usuarioId, Integer animalId) throws ExcepcionesAcoger {
         String dml = "DELETE FROM favoritos WHERE usuario_id = ? AND animal_id = ?";
         int registrosAfectados = 0;
@@ -1231,6 +1247,14 @@ public class AcogerCad {
 
         return registrosAfectados;
     }
+
+
+    /**
+     * Método que obtiene todos los animales marcados como favoritos por un usuario.
+     * @param usuarioId ID del usuario cuyos favoritos se desean recuperar.
+     * @return Lista de objetos Animal con su respectiva protectora y la marca de favorito activada.
+     * @throws ExcepcionesAcoger si ocurre un error durante la consulta a la base de datos.
+     */
 
     public ArrayList<Animal> obtenerFavoritosDeUsuario(Integer usuarioId) throws ExcepcionesAcoger {
     	ArrayList<Animal> lista = new ArrayList<>();
@@ -1294,6 +1318,14 @@ public class AcogerCad {
         return lista;
     }
   
+    /**
+     * Método que comprueba si un animal está marcado como favorito por un usuario.
+     * Actualiza el atributo esFavorito del objeto Animal según el resultado de la consulta.
+     * @param animal Objeto Animal a verificar.
+     * @param usuarioId ID del usuario que podría tenerlo como favorito.
+     * @throws SQLException si ocurre un error durante la consulta SQL.
+     */
+
     public void marcarSiEsFavorito(Animal animal, int usuarioId) throws SQLException {
         String sql = "SELECT 1 FROM favoritos WHERE usuario_id = ? AND animal_id = ?";
         try (Connection conn = DriverManager.getConnection(cadenaConexionBD, usuario, contrasena);
@@ -1306,6 +1338,15 @@ public class AcogerCad {
             animal.setEsFavorito(rs.next()); 
         }
     }
+
+
+    /**
+     * Método que asigna una imagen a una protectora en la base de datos.
+     * Extrae el nombre del archivo de imagen desde la ruta proporcionada y lo guarda en la columna FOTO.
+     * @param protectoraId ID de la protectora a la que se le asignará la imagen.
+     * @param rutaImagen Ruta completa del archivo en el sistema de archivos.
+     * @throws Exception si el archivo no existe o si ocurre un error en la actualización.
+     */
 
     public void cargarFotoProtectoraDesdeArchivo(int protectoraId, String rutaImagen) throws Exception {
         File archivo = new File(rutaImagen);
@@ -1330,7 +1371,14 @@ public class AcogerCad {
         }
     }
 
-    
+    /**
+     * Método que asigna una imagen a un animal en la base de datos.
+     * Extrae el nombre del archivo desde la ruta dada y lo guarda en la columna FOTO del animal.
+     * @param animalId ID del animal al que se le asociará la imagen.
+     * @param rutaImagen Ruta completa del archivo de imagen en el sistema de archivos.
+     * @throws Exception si el archivo no existe o si ocurre un error en la actualización SQL.
+     */
+
     public void cargarFotoDesdeArchivo(int animalId, String rutaImagen) throws Exception {
         File archivo = new File(rutaImagen);
         if (!archivo.exists()) {
@@ -1353,10 +1401,6 @@ public class AcogerCad {
             System.out.println("✅ Ruta de foto registrada para ANIMAL_ID=" + animalId + " → " + nombreArchivo);
         }
     }
-
-
-
-
 }
 
 
